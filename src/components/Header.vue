@@ -19,6 +19,23 @@
 <template>
 	<div class="header">
 		<Logo />
+		<div class="navigation">
+			<div class="item">
+				Nav Item 1
+			</div>
+			<div class="item">
+				Nav Item 2
+			</div>
+			<div class="item">
+				Nav Item 3
+			</div>
+			<div class="item">
+				Nav Item 4
+			</div>
+			<div class="item">
+				Nav Item 5
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -47,5 +64,37 @@ export default {
 	justify-content: space-between;
 
 	background: var(--color-bg-navbar);
+
+	.navigation {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+
+		.item {
+			position: static;
+			width: 95px;
+			height: 22px;
+			left: 473px;
+			top: 0px;
+
+			/* label */
+
+			font-family: Carbon;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 18px;
+			line-height: 120%;
+			text-transform: uppercase;
+
+			/* Inside Auto Layout */
+
+			flex: none;
+			order: 4;
+			flex-grow: 0;
+			margin: 0px 24px;
+		}
+	}
 }
 </style>
