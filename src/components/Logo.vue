@@ -44,11 +44,6 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 0px;
-
-    position: absolute;
     height: 24px;
-    left: 16px;
-    top: calc(50% - 24px/2);
 }
 </style>

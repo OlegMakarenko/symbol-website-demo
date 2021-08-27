@@ -20,7 +20,7 @@
 	<div class="home">
 		<div class="section">
 			<img src="../assets/Delivery.png" class="image image1" />
-			<div class="hero">
+			<div class="hero fit-screen">
 				<h2 class="title">
 					Greetings Space Pirates! We are making the world a better place 
 					through the power of technical innovation.
@@ -43,11 +43,47 @@
 					Sit ornare pulvinar sed elit sit.
 				</div>
 			</div>
+			<div class="benefits-container">
+				<div class="benefit-item">
+					<ThemedImage name="Restrictions" class="benefit-image" />
+					<h3 class="title">
+						Title
+					</h3>
+					<div class="benefit-description">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+					</div>
+					<Link caption="LEARN MORE" />
+				</div>	
+				<div class="benefit-item">
+					<ThemedImage name="Mosaics" class="benefit-image" />
+					<h3 class="title">
+						Title
+					</h3>
+					<div class="benefit-description">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+					</div>
+					<Link caption="LEARN MORE" />
+				</div>	
+				<div class="benefit-item">
+					<ThemedImage name="Plugins" class="benefit-image" />
+					<h3 class="title">
+						Title
+					</h3>
+					<div class="benefit-description">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+					</div>
+					<Link caption="LEARN MORE" />
+				</div>	
+			</div>
+			
 		</div>
 
 		<div class="section">
 			<img src="../assets/Passport.png" class="image image2" />
-			<div class="hero">
+			<div class="hero fit-screen">
 				<h1 class="title">
 					Get a wallet
 				</h1>
@@ -61,7 +97,7 @@
 
 		<div class="section dark">
 			<img src="../assets/Treasure-Chest.png" class="image image3" />
-			<div class="hero">
+			<div class="hero fit-screen">
 				<h1 class="title">
 					Contribute
 				</h1>
@@ -75,26 +111,30 @@
 
 		<div class="section">
 			<img src="../assets/Factory.png" class="image image4" />
-			<div class="hero">
+			<div class="hero over-screen">
 				<h1 class="title">
 					LEARN
 				</h1>
-				<div class="body">
+				<div class="body" style="font-size: 25px; line-height: 30px;">
 					Knowledge is power. Read, learn, and see what you can do with Symbol.
 				</div>
-				<Button caption="LEARN" />
+				<Link caption="LEARN" class="button" />
 			</div>
 		</div>
 	</div>
 </template>
 <script>
 import Button from '@/components/Button.vue';
+import Link from '@/components/Link.vue';
+import ThemedImage from '@/components/ThemedImage.vue';
 
 export default {
 	name: 'Home',
 
 	components: {
-		Button
+		Button,
+		Link,
+		ThemedImage
 	},
 
 	mounted() {
@@ -130,21 +170,20 @@ export default {
 
 		.image3 {
 			height: 100%;
-			max-width: 1000px;
 		}
 
 		.image4 {
-			height: 80%;
+			width: 92%;
 			left: 50%;
 			transform: translateX(-50%);
 			bottom: 0;
+			overflow: hidden;
 		}
 
 		.hero {
 			position: relative;
 			width: 70%;
 			max-width: 1000px;
-			min-height: 80vh;
 			padding-left: 46px;
 
 			.body {
@@ -155,11 +194,49 @@ export default {
 				margin-top: 22px;
 			}
 		}
+
+		.fit-screen {
+			min-height: 90vh;
+		}
+
+		.over-screen {
+			min-height: 120vh;
+		}
 	}
 	
 	.dark {
 		background: var(--color-bg-dark);
 	}
 
+	.benefits-container {
+		display: flex;
+		justify-content: space-around;
+		flex-direction: row;
+		padding-top: 44px;
+		padding-bottom: 25px;
+
+		.benefit-item {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-direction: column;
+		}
+
+		.benefit-image {
+			height: 144px;
+		}
+
+		.benefit-description {
+			width: 280px;
+			font-family: Protipo;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 18px;
+			line-height: 150%;
+
+			text-align: center;
+			margin: 8px 0px;
+		}
+	}
 }
 </style>

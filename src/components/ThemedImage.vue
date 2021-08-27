@@ -35,7 +35,7 @@ const images = {
 };
 
 export default {
-	name: 'Image',
+	name: 'ThemedImage',
 
     props: {
         name: {
@@ -51,7 +51,7 @@ export default {
         },
 
         src() {
-            return image[this.name][this.imageIndex];
+            return images[this.name][this.imageIndex];
         }
     }
 };

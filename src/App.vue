@@ -17,7 +17,7 @@
  */
 
 <template>
-	<div id="app">
+	<div v-if="isRenderAllowed" id="app">
 		<div class="app-content">
 			<div class="width-limiter">
 				<transition name="view">
@@ -27,6 +27,9 @@
 		</div>
 		<Header />
 		<Footer />
+	</div>
+	<div v-else id="app">
+		<h3 class="text-center">Mobile version is not supported yet!</h3>
 	</div>
 </template>
 
@@ -43,13 +46,30 @@ export default {
 
 	created() {
 		this.$store.dispatch('ui/init');
+		window.addEventListener("resize", this.resize);
+	},
+
+	destroyed() {
+		window.removeEventListener("resize", this.resize);
+	},
+
+	data() {
+		return {
+			isRenderAllowed: window.innerWidth > 860
+		}
 	},
 
 	computed: {
 		theme() {
 			return this.$store.getters['ui/theme'];
 		}
-	}
+	},
+
+	methods: {
+		resize(e) {
+			this.isRenderAllowed = window.innerWidth > 860
+		}
+	},
 };
 </script>
 
@@ -81,5 +101,9 @@ html, body, #fullheight {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.text-center {
+	text-align: center;
 }
 </style>

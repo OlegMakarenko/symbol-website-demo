@@ -18,15 +18,42 @@
 
 <template>
 	<div class="footer">
-		<div @click="changeTheme('lightmode')">Lightmode</div>
-        <div @click="changeTheme('darkmode')">Darkmode</div>
+		<Logo />
+		<div class="navigation">
+			<div class="section">
+				<h3>Mobile app</h3>
+				<div class="label">Features</div>
+				<div class="label">Live share</div>
+				<div class="label">Video record</div>
+			</div>
+			<div class="section">
+				<h3>Community</h3>
+				<div class="label">Featured artists</div>
+				<div class="label">The Portal</div>
+				<div class="label">Live events</div>
+			</div>
+			<div class="section">
+				<h3>Company</h3>
+				<div class="label">About us</div>
+				<div class="label">Contact us</div>
+				<div class="label">History</div>
+			</div>
+		</div>
+		<div class="mode-swith" @click="changeTheme('lightmode')">Swith to Lightmode</div>
+        <div class="mode-swith" @click="changeTheme('darkmode')">Swith to Darkmode</div>
 	</div>
 </template>
-<script>
 
+
+<script>
+import Logo from '@/components/Logo.vue';
 
 export default {
 	name: 'Footer',
+
+	components: {
+		Logo
+	},
 
 	methods: {
         changeTheme(theme) {
@@ -43,8 +70,37 @@ export default {
 	justify-content: center;
 	align-items: flex-start;
 	padding: 32px 16px 32px 48px;
-
-
 	background: var(--color-bg-footer);
+	color: var(--color-text-footer);
+
+	.navigation {
+		margin-top: 48px;
+		margin-bottom: 18px;
+		display: flex;
+		flex-direction: row;
+
+
+		.section {
+			display: block;
+			width: 173px;
+			margin-right: 30px;
+		}
+
+		.label {
+			cursor: not-allowed;
+		}
+
+		.label:first-child {
+			margin-top: 15px;
+		}
+	}
+
+	.mode-swith {
+		color: var(--color-button-text-unbounded);
+		text-decoration: var(--font-button-unbounded-text-decoration);
+		font-size: var(--font-button-unbounded-font-size);
+		font-family: var(--font-button-unbounded-font-family);
+		cursor: pointer;
+	}
 }
 </style>

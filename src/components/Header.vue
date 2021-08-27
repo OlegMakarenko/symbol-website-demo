@@ -18,7 +18,7 @@
 
 <template>
 	<div class="header">
-		<Logo />
+		<Logo class="logo" />
 		<div class="navigation">
 			<div class="item">
 				Nav Item 1
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import Logo from '@/components/Logo.vue'
+import Logo from '@/components/Logo.vue';
 
 export default {
 	name: 'Header',
@@ -64,6 +64,13 @@ export default {
 	justify-content: space-between;
 
 	background: var(--color-bg-navbar);
+
+	.logo {
+		position: absolute;
+		height: 24px;
+		left: 16px;
+		top: calc(50% - 24px/2);
+	}
 
 	.navigation {
 		width: 100%;
@@ -94,6 +101,7 @@ export default {
 			order: 4;
 			flex-grow: 0;
 			margin: 0px 24px;
+			cursor: not-allowed;
 		}
 	}
 }
