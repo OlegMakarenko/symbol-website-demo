@@ -17,7 +17,7 @@
  */
 
 <template>
-	<img :src="src" />
+	<img :src="src" @click="onClick"/>
 </template>
 
 <script>
@@ -27,11 +27,14 @@ import PluginsDarkmodeSrc from '../assets/darkmode/Plug-Ins.png';
 import PluginsLightmodeSrc from '../assets/lightmode/Plug-Ins.png';
 import RestrictionsDarkmodeSrc from '../assets/darkmode/Restrictions.png';
 import RestrictionsLightmodeSrc from '../assets/lightmode/Restrictions.png';
+import ThemeSwitchDarkmodeSrc from '../assets/darkmode/theme-switch.png';
+import ThemeSwitchLightmodeSrc from '../assets/lightmode/theme-switch.png';
 
 const images = {
     Mosaics: [MosaicsDarkmodeSrc, MosaicsLightmodeSrc],
     Plugins: [PluginsDarkmodeSrc, PluginsLightmodeSrc],
     Restrictions: [RestrictionsDarkmodeSrc, RestrictionsLightmodeSrc],
+    ThemeSwitch: [ThemeSwitchDarkmodeSrc, ThemeSwitchLightmodeSrc]
 };
 
 export default {
@@ -42,7 +45,7 @@ export default {
             type: String,
             required: true,
             validator: item => Object.keys(images).includes(item)
-        }
+        },
     },
 
 	computed: {
@@ -52,6 +55,12 @@ export default {
 
         src() {
             return images[this.name][this.imageIndex];
+        }
+    },
+
+    methods: {
+        onClick() {
+            this.$emit('click');
         }
     }
 };

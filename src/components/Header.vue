@@ -20,20 +20,23 @@
 	<div class="header">
 		<Logo class="logo" />
 		<div class="navigation">
-			<div class="item">
+			<div class="item not-allowed">
 				Nav Item 1
 			</div>
-			<div class="item">
+			<div class="item not-allowed">
 				Nav Item 2
 			</div>
-			<div class="item">
+			<div class="item not-allowed">
 				Nav Item 3
 			</div>
-			<div class="item">
+			<div class="item not-allowed">
 				Nav Item 4
 			</div>
-			<div class="item">
+			<div class="item not-allowed">
 				Nav Item 5
+			</div>
+			<div class="item">
+				<ThemedImage name="ThemeSwitch" style="width: 26px; height: 22px;" @click="changeTheme" />
 			</div>
 		</div>
 	</div>
@@ -41,12 +44,22 @@
 
 <script>
 import Logo from '@/components/Logo.vue';
+import ThemedImage from '@/components/ThemedImage.vue';
 
 export default {
 	name: 'Header',
 
 	components: {
-		Logo
+		Logo,
+		ThemedImage
+	},
+
+	methods: {
+		changeTheme() {
+			const theme = this.$store.getters['ui/theme'];
+
+            this.$store.dispatch('ui/changeTheme', theme === 'darkmode' ? 'lightmode' : 'darkmode');
+        }
 	}
 };
 </script>
@@ -101,6 +114,10 @@ export default {
 			order: 4;
 			flex-grow: 0;
 			margin: 0px 24px;
+			cursor: pointer;
+		}
+
+		.not-allowed {
 			cursor: not-allowed;
 		}
 	}
