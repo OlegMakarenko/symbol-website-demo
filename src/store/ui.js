@@ -53,7 +53,7 @@ export default {
 		init: ({ dispatch }) => {
 			console.log('action: ui/init');
 
-			const savedTheme = localStorage.getItem('theme');
+			const savedTheme = localStorage.getItem('theme') || DEFAULT_THEME;
 
 			if (savedTheme)
 				dispatch('changeTheme', savedTheme);
